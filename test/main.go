@@ -11,6 +11,15 @@ func test_set_basic() {
 	s.Add(true)
 	fmt.Println(s.Length())
 	s.Show()
+	fmt.Printf("%s is in s? %t\n", "hello", s.Has("hello"))
+	fmt.Printf("%d is in s? %t\n", 123, s.Has(123))
+
+	s2 := set.New()
+	s2.Add("hello")
+	fmt.Println(s.Union(s2))
+	fmt.Println(s.Intersection(s2))
+	fmt.Println(s.Subtraction(s2))
+	fmt.Println(s.ToArray())
 }
 
 func main() {
