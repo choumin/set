@@ -20,6 +20,9 @@ func test_set_basic() {
 	fmt.Println(s.Intersection(s2))
 	fmt.Println(s.Subtraction(s2))
 	fmt.Println(s.ToArray())
+
+	s3 := set.New(1, "2", "hello", false)
+	s3.Show()
 }
 
 func main() {

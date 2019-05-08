@@ -60,9 +60,13 @@ func (s Set) Show() {
 		fmt.Printf("%v %t\n", key, val)
 	}
 }
-func New() Set {
+func New(ins ...interface{}) Set {
 	//fmt.Println("You have create a new Set!")
 	//fmt.Println("It just is a demo and updating...")
 	//fmt.Println("I'm in set.Set()")
-	return Set{make(map[interface{}]bool)}
+	s := Set{make(map[interface{}]bool)}
+	for _, val := range ins {
+		s.Add(val)
+	}
+	return s
 }
