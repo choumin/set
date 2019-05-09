@@ -1,6 +1,7 @@
 package set
 
 import "fmt"
+import "reflect"
 
 type Set struct {
 	values  map[interface{}]bool
@@ -73,6 +74,18 @@ func (s Set) Show() {
 	for key, val := range s.values {
 		fmt.Printf("%v %t\n", key, val)
 	}
+}
+func FromSlice(in interface{}) Set {
+	s := Set{make(map[interface{}]bool), new(int)}
+	if reflect.TypeOf(in).Kind() != reflect.Slice {
+		fmt.Printf("Warning! %v is not slice type!\n", in)
+		return New(in)
+	}
+	ins := reflect.ValueOf(in)
+	for i := 0; i < ins.Len(); i++ {
+		s.Add(ins.Index(i).Interface())
+	}
+	return s
 }
 func New(ins ...interface{}) Set {
 	//fmt.Println("You have create a new Set!")

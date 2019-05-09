@@ -27,6 +27,19 @@ func test_set_basic() {
 	s3.Show()
 	fmt.Println(s3.Size())
 	//fmt.Println(s3.values)
+
+	s4 := set.FromSlice([]int{1, 2, 3, 4})
+	s4.Show()
+
+	s5 := set.FromSlice([]bool{false, true})
+	s5.Show()
+
+	s6 := set.FromSlice([]string{"hello", "world"})
+	s6.Show()
+
+	s7 := set.FromSlice(1)
+	s7.Show()
+
 }
 
 func main() {
