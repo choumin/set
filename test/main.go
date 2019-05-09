@@ -9,7 +9,7 @@ func test_set_basic() {
 	s.Add(123)
 	s.Add('a')
 	s.Add(true)
-	fmt.Println(s.Length())
+	fmt.Println(s.Size())
 	s.Show()
 	fmt.Printf("%s is in s? %t\n", "hello", s.Has("hello"))
 	fmt.Printf("%d is in s? %t\n", 123, s.Has(123))
@@ -23,6 +23,10 @@ func test_set_basic() {
 
 	s3 := set.New(1, "2", "hello", false)
 	s3.Show()
+	s3.Remove("2")
+	s3.Show()
+	fmt.Println(s3.Size())
+	//fmt.Println(s3.values)
 }
 
 func main() {
